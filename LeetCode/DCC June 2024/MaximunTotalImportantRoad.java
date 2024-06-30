@@ -1,5 +1,3 @@
-import java.util.*;
-
 // You are given an integer n denoting the number of cities in a country. The cities are numbered from 0 to n - 1.
 
 // You are also given a 2D integer array roads where roads[i] = [ai, bi] denotes that there exists a bidirectional road connecting cities ai and bi.
@@ -8,6 +6,7 @@ import java.util.*;
 
 // Return the maximum total importance of all roads possible after assigning the values optimally.
 
+import java.util.*;
 class MaximunTotalImportantRoad {
     public static long maximumImportance(int n, int[][] roads) {
         // Array to sotre the degree of each city
