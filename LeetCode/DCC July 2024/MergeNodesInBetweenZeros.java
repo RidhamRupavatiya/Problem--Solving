@@ -16,10 +16,33 @@
 
 
 import java.util.*;
+
+// Blue print of creating a new node.
+class Node{
+    int val;
+    Node next;
+    Node(int val){
+        this.val = val;
+        this.next = null;
+    }
+}
+
+class LinkedList{
+    Node head;
+
+    void printLinkedList(){
+        Node curr = this.head;
+        while(curr != null){
+            System.out.println(curr.val);
+            curr = curr.next;
+        }
+    }
+}
+
 public class MergeNodesInBetweenZeros {
-    public ListNode mergeNodes(ListNode head) {
-        ListNode modify = head.next;
-        ListNode nextSum = modify;
+    public static Node mergeNodes(Node head) {
+        Node modify = head.next;
+        Node nextSum = modify;
 
         while(nextSum != null){
             int sum = 0;
@@ -33,5 +56,30 @@ public class MergeNodesInBetweenZeros {
             modify = modify.next;
         }
         return head.next;
+    }
+    public static void main(String[] args) {
+
+        LinkedList l1 = new LinkedList();
+
+        // [0,3,1,0,4,5,2,0]
+        Node p1 = new Node(0);
+        l1.head = p1;
+        Node p2 = new Node(3);
+        p1.next = p2;
+        Node p3 = new Node(1);
+        p2.next = p3;
+        Node p4 = new Node(0);
+        p3.next = p4;
+        Node p5 = new Node(4);
+        p4.next = p5;
+        Node p6 = new Node(5);
+        p5.next = p6;
+        Node p7 = new Node(2);
+        p6.next = p7;
+        Node p8 = new Node(0);
+        p7.next = p8;
+
+        mergeNodes(l1.head);
+        l1.printLinkedList();
     }
 }
