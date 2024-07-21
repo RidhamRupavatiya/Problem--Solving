@@ -29,7 +29,7 @@ class FindTheValidMatrix{
         int ans[][] = obj.restoreMatrix(rowSum, colSum);
         for (int i = 0; i < ans.length; i++) {
             for (int j = 0; j < ans[0].length; j++) {
-                System.err.print(ans[i][j]);
+                System.out.print(ans[i][j]);
             }
         }
     }
