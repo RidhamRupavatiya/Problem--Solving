@@ -13,7 +13,6 @@
 // The result of the merge is [1,2,2,3,5,6] with the underlined elements coming from nums1.
 
 
-import java.util.*;
 class MergeSort{
     public static void merge(int[] nums1, int m, int[] nums2, int n) {
         int i = m-1;
