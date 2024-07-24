@@ -23,11 +23,41 @@
 // Since 338 and 38 share the same mapped value, they should remain in the same relative order, so 338 comes before 38.
 // Thus, the sorted array is [338,38,991].
 
-class SortTheJumpedNumbers{
+import java.util.*;
+class SortTheJumbledNumbers{
     public static void main(String[] args) {
-        SortTheJumpedNumbers obj = new SortTheJumpedNumbers();
+        SortTheJumbledNumbers obj = new SortTheJumbledNumbers();
+        int mapping[] = {8,9,4,0,2,1,3,5,7,6};
+        int nums[] = {991,338,38};
+        int ans[] = obj.sortJumbled(mapping, nums);
+        for (int i = 0; i < ans.length; i++) {
+            System.out.println(ans[i]);
+        }
     }
     public int[] sortJumbled(int[] mapping, int[] nums) {
-        
+        List<int[]> mappedList = new ArrayList<>();
+        for (int i = 0; i < nums.length; i++) {
+            String s = Integer.toString(nums[i]);
+            StringBuilder n = new StringBuilder();
+            for (char ch : s.toCharArray()) {
+                n.append(mapping[ch - '0']);
+            }
+            mappedList.add(new int[]{nums[i], Integer.parseInt(n.toString()), i});
+        }
+
+        mappedList.sort((a, b) -> {
+            if (a[1] != b[1]) {
+                return Integer.compare(a[1], b[1]);
+            } else {
+                return Integer.compare(a[2], b[2]);
+            }
+        });
+
+        int[] sortedNums = new int[nums.length];
+        for (int i = 0; i < mappedList.size(); i++) {
+            sortedNums[i] = mappedList.get(i)[0];
+        }
+
+        return sortedNums;
     }
 }
