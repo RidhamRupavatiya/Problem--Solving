@@ -37,6 +37,14 @@ class CodeNumberOfTerms{
                 if(rating[j] < rating[i]) less++;
                 else greather++;
             }
+            lessThanIRight[i] = less;
+            greatherThanIRight[i] = greather;
         }
+        int count = 0;
+        for (int i = 0; i < rating.length; i++) {
+            count += lessThanILeft[i] * greatherThanIRight[i];
+            count += lessThanIRight[i] * greatherThanILeft[i];
+        }
+        return count;
     }
 }
